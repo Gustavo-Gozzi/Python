@@ -1,0 +1,41 @@
+from random import randint
+
+maquina = jogador = 0
+pc = randint(0, 10)
+print('Vamos jogar PAR ou IMPAR!!!')
+while True:
+    pergunta = input('Você quer ser o PAR ou o IMPAR? ').upper()[0]
+    if pergunta in 'P':
+        print('Então eu serei o ÍMPAR.')
+        numero = int(input('Qual número você quer? '))
+        print(f'Ok, eu escolho {pc}!')
+        soma = numero + pc
+        if soma % 2 == 0:
+            print(f'{numero} + {pc} = {numero + pc}. Como o resultado é PAR você venceu.')
+            jogador += 1
+            pergunta = input('Quer continuar? ').upper()[0]
+        elif soma % 2 == 1:
+            print(f'{numero} + {pc} = {numero + pc}. Como o resultado é ÍMPAR eu ganhei.')
+            maquina += 1
+            pergunta = input('Quer continuar? ').upper()[0]
+        if pergunta == 'N':
+            break
+    elif pergunta in 'I':
+        print('Então eu serei o PAR!')
+        numero = int(input('Qual número você quer? '))
+        print(f'Eu escolho {pc}')
+        soma = numero + pc
+        if soma % 2 == 1:
+            print(f'{numero} + {pc} = {numero + pc}. Como o resultado é ÍMPAR você venceu.')
+            jogador += 1
+            pergunta = input('Quer continuar? ').upper()[0]
+        elif soma % 2 == 0:
+            print(f'{numero} + {pc} = {numero + pc}. Como o resultado é PAR eu ganhei.')
+            maquina += 1
+            pergunta = input('Quer continuar? ').upper()[0]
+        if pergunta == 'N':
+            break
+print(f'''***ENCERRANDO O JOGO***
+O placar é:
+Computador {maquina} x {jogador} Jogador.
+Ao total, foram jogadas {maquina + jogador} partidas!''')
