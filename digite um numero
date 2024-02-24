@@ -1,0 +1,32 @@
+maior = menor = numero = quant = soma = 0
+while numero != 999:
+    numero = int(input('Digite um número (999 encerrará o programa): '))
+    if numero != 999:
+        quant += 1
+        soma += numero
+        if quant == 1:
+            maior = menor = numero
+        else:
+            if numero > maior:
+                maior = numero
+            if numero < menor:
+                menor = numero
+    elif numero == 999:
+        if quant == 0:
+            maior = str('Não teve maior.')
+            menor = str('Não teve menor.')
+            quant = 0
+            soma = str('Não teve soma.')
+        elif quant > 0:
+            quant = quant
+            maior = maior
+            menor = menor
+            soma = soma
+        break
+print(f'''
+Número 999 digitado...
+ENCERRANDO PROGRAMA
+Maior número: {maior}
+Menor número: {menor}
+Soma: {soma}
+Quantidade de números digitados: {quant}''')
