@@ -1,0 +1,35 @@
+num = int(input('Digite um número: '))
+num2 = int(input('Digite outro número: '))
+
+print('''
+Escolha uma das seguintes opções:
+[ 1 ] Soma
+[ 2 ] Subtração
+[ 3 ] Multiplicação
+[ 4 ] Divisão
+[ 5 ] Sair do programa
+''')
+i = input('Digite aqui ->  ')
+
+while i not in '1,2,3,4,5':
+    print(''' ** OPÇÃO INVÁLIDA **
+    Escolha uma das seguintes opções:
+    [ 1 ] Soma
+    [ 2 ] Subtração
+    [ 3 ] Multiplicação
+    [ 4 ] Divisão
+    [ 5 ] Sair do programa
+    ''')
+    i = input('Digite aqui -> ')
+if i == '1':
+    print(num + num2)
+elif i == '2':
+    print(num - num2)
+elif i == '3':
+    print(num * num2)
+elif i == '4':
+    div = num / num2
+    print(f'{div:.2f}')
+elif i == '5':
+    print(f'''Aparentemente não faremos nada com os números {num} e {num2}.
+Volte quando quiser algo matemático!''')
