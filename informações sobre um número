@@ -1,0 +1,8 @@
+while True:
+    num = float(input('Digite um número: '))
+    print(f'''Número {num} digitado. O antecessor é {num - 1}, o sucessor é {num + 1}. O inverso é 1/{num:.0f},
+o oposto é {-1 * num}.''')
+    resp = input('Quer continuar? [S/N] ').upper().strip()[0]
+    if resp in 'N':
+        break
+print('FINALIZANDO...')
