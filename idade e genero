@@ -1,5 +1,6 @@
 from datetime import date
 
+idade = 0
 nome = input('Qual o seu nome? ')
 nascim = input('Data do Nascimento [dd/mm/aaaa]: ')
 dia = int(nascim[:2])
@@ -10,16 +11,16 @@ day = int(today[8:])
 month = int(today[5:7])
 year = int(today[:4])
 if mes > month:
-    idade = year - ano
+    idade = year - ano - 1
 elif mes < month:
-    idade = year - ano + 1
+    idade = year - ano
 elif mes == month:
     if dia > day:
         idade = year - ano
     elif dia < day:
-        idade = year - ano + 1
+        idade = year - ano
     elif dia == day:
-        idade = year - ano + 1
+        idade = year - ano
 
 while True:
     gen = input('Qual o seu gênero? [Masculino/Feminino]: ').upper()
@@ -31,3 +32,7 @@ Volte quando quiser!''')
         print(f'''Olá, senhora {nome}. Fico feliz em saber que a dama tem {idade} anos. 
 Que continue bela como sempre!''')
         break
+if dia == day and mes == month:
+    print('Feliz Aniverário, aliás!')
+
+print(f'Data de hoje: {date.today()}')
