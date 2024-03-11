@@ -1,0 +1,17 @@
+n = 0
+i = int(input('Digite um número e eu te mostrarei quais deles são multiplos de 3, ou de 5, ou de ambos: '))
+
+
+def multiplo3_5(n):
+    if n % 3 == 0 and n % 5 == 0:
+        print(f'{n}. Este é multiplo de 3 e de 5')
+    elif n % 3 == 0 and not n % 5 == 0:
+        print(f'{n}. Este é multiplo somente de 3')
+    elif n % 5 == 0 and not n % 3 == 0:
+        print(f'{n}. Este é multiplo somente de 5')
+    else:
+        print(n)
+
+
+for n in range(1, i + 1):
+    multiplo3_5(n)
