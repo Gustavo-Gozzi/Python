@@ -1,0 +1,15 @@
+nome = input()
+idade = int(input())
+renda = float(input())
+
+if idade > 45:
+    total = 'contatar gestor'
+else:
+    if idade > 25:
+        if idade <= 35:
+            total = renda * 0.75
+        else:
+            total = renda
+    else:
+        total = renda * 0.5
+print(total)
