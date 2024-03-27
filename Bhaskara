@@ -1,0 +1,18 @@
+print('Vamos fazer BHASKARA')
+a = float(input(f'Digite o valor de A: '))
+b = float(input('Digite o valor de B: '))
+c = float(input('Digite o valor de C: '))
+delta = b ** 2 - 4 * a * c
+if a == 0:
+    print('Não há equação de segundo grau.')
+else:
+    if delta == 0:
+        x = -b / 2 * a
+        print(f'A única raiz é {x}')
+    elif delta > 0:
+        x = (-b - delta ** 0.5) / 2 * a
+        x2 = (-b + delta ** 0.5) / 2 * a
+        print(f'X1 = {x}')
+        print(f'X2 = {x2}')
+    else:
+        print('Não há raizes reais porque delta é menor que 0.')
