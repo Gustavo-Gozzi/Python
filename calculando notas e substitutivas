@@ -1,0 +1,34 @@
+alunos = int(input())
+cont_loop1 = cont_loop2 = alteradas = cont_loop3 = 0
+notas = [0.0] * alunos
+subs = [0.0] * alunos
+result = [''] * alunos
+
+while cont_loop1 < alunos:
+    notas[cont_loop1] = float(input())
+    cont_loop1 += 1
+
+while cont_loop2 < alunos:
+    subs[cont_loop2] = float(input())
+    if notas[cont_loop2] == 10:
+        result[
+            cont_loop2] = f'-({cont_loop2 + 1:0>3}) original: {notas[cont_loop2]:0^5} | final: {notas[cont_loop2]:0^5}'
+    else:
+        if subs[cont_loop2] == 10:
+            if notas[cont_loop2] + 2 > 10:
+                result[
+                    cont_loop2] = f'*({cont_loop2 + 1:0>3}) original: {notas[cont_loop2]:0^5} | final: 10.00'
+                alteradas += 1
+            else:
+                result[
+                    cont_loop2] = f'*({cont_loop2 + 1:0>3}) original: {notas[cont_loop2]:0^5} | final: {notas[cont_loop2] + 2:0^5}'
+                alteradas += 1
+        if subs[cont_loop2] < 10:
+            result[
+                cont_loop2] = f'-({cont_loop2 + 1:0>3}) original: {notas[cont_loop2]:0^5} | final: {notas[cont_loop2]:0^5}'
+
+    cont_loop2 += 1
+print(f'NOTAS ALTERADAS: {alteradas}')
+while cont_loop3 < alunos:
+    print(result[cont_loop3])
+    cont_loop3 += 1
