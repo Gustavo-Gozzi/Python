@@ -7,7 +7,9 @@ def calcula_notas(m, w, x, y=0.0, z=0.0):
 while True:
     materia = input('Qual a matéria que iremos calcular? ').upper()
     media = float(input('Que nota de média você quer ter? '))
-
+    while media > 10:
+        media = int(input('Não é possível ter uma média maior que 10, por favor insira outro valor: '))
+        
     if materia == 'MATEMATICA' or materia == 'MATEMÁTICA' or materia == 'SOFTSKILLS':
         nota_1 = float(input('Digite a nota da PRIMEIRA prova: ')) * 0.25
         nota_2 = float(input('Digite a nota da SEGUNDA prova: ')) * 0.25
@@ -18,7 +20,7 @@ while True:
         pre_01, pre_02, ap_01, ap_02 = float(pre_01) * 0.05, float(pre_02) * 0.05, float(ap_01) * 0.2, float(
             ap_02) * 0.2
         nota_necessaria = calcula_notas(media, pre_01, pre_02, ap_01, ap_02)
-    print(f'A nota necessária para você ficar come média desejada é: {nota_necessaria}.')
+    print(f'A nota necessária para você ficar com a média desejada é: {nota_necessaria:.2f}')
 
     if nota_necessaria > 10:
         print('Não vai ser possível, a nota máxima para se tirar em uma prova é 10')
@@ -33,26 +35,26 @@ while True:
     pergunta = input('Quer saber mais detalhes? ').upper()
     if pergunta[0] == 'S' and materia == 'MATEMATICA' or pergunta[0] == 'S' and materia == 'SOFTSKILLS':
         print(f'''Cada prova tem um valor diferente na média, aqui estãos seus respectivos valores:
-    PRE01 e a PRE02 valem 5%
-    Já a AP1 e a AP2 valem 20%
-    E a Prova Regular (Prova Final) vale 50%
-    Então a conta é: AP1 * 0.25 + AP2 * 0.25 + PR * 0.50.
-    Considerando que a nota mínima na Média desejada é {media} e que a nota da Prova regular é uma incognita, podemos fazer com que a prova regular seja igual a x, 
-    sendo assim temos: AP1 * 0.25 + AP2 * 0.25 + X * 0.50. = {media}, substituindo os valores fica:
-    {nota_1} + {nota_2} -> {nota_1 + nota_2} - {media} = x * 0.5 -> x = {nota_1 + nota_2 - media}/0.5 ->
-    {nota_necessaria}''')
+PRE01 e a PRE02 valem 5%
+Já a AP1 e a AP2 valem 20%
+E a Prova Regular (Prova Final) vale 50%
+Então a conta é: AP1 * 0.25 + AP2 * 0.25 + PR * 0.50.
+Considerando que a nota mínima na Média desejada é {media} e que a nota da Prova regular é uma incognita, podemos fazer com que a prova regular seja igual a x, 
+sendo assim temos: AP1 * 0.25 + AP2 * 0.25 + X * 0.50. = {media}, substituindo os valores fica:
+{nota_1} + {nota_2} -> {nota_1 + nota_2} - {media} = x * 0.5 -> x = {nota_1 + nota_2 - media}/0.5 ->
+{nota_necessaria:.2f}''')
     elif pergunta[0] == 'S':
         print(f'''Cada prova tem um valor diferente na média, aqui estãos seus respectivos valores:
-    PRE01 e a PRE02 valem 5%
-    Já a AP1 e a AP2 valem 20%
-    E a Prova Regular (Prova Final) vale 50%
-    Então a conta é: PRE01 * 0.05 + PRE02 * 0.05 + AP1 * 0.20 + AP2 * 0.20 + PR * 0.50.
-    Considerando que a nota mínima na Média desejada é {media} e que a nota da Prova regular é uma incognita, podemos fazer com que a prova regular seja igual a x, 
-    sendo assim temos: PRE01 * 0.05 + PRE02 * 0.05 + AP1 * 0.20 + AP2 * 0.20 + x * 0.50 = {media}, substituindo os valores fica:
-    {pre_01:.2f} + {pre_02:.2f} + {ap_01:.2f} + {ap_02:.2f} + x * 0.50 = {media} -> 
-    {pre_01 + pre_02 + ap_01 + ap_02} - {media} = x * 0.5 -> 
-    x = {pre_01 + pre_02 + ap_01 + ap_02 - media}/0.5 ->
-    {nota_necessaria}''')
+PRE01 e a PRE02 valem 5%
+Já a AP1 e a AP2 valem 20%
+E a Prova Regular (Prova Final) vale 50%
+Então a conta é: PRE01 * 0.05 + PRE02 * 0.05 + AP1 * 0.20 + AP2 * 0.20 + PR * 0.50.
+Considerando que a nota mínima na Média desejada é {media} e que a nota da Prova regular é uma incognita, podemos fazer com que a prova regular seja igual a x, 
+sendo assim temos: PRE01 * 0.05 + PRE02 * 0.05 + AP1 * 0.20 + AP2 * 0.20 + x * 0.50 = {media}, substituindo os valores fica:
+{pre_01:.2f} + {pre_02:.2f} + {ap_01:.2f} + {ap_02:.2f} + x * 0.50 = {media} -> 
+{pre_01 + pre_02 + ap_01 + ap_02} - {media:.2f} = x * 0.5 -> 
+x = {pre_01 + pre_02 + ap_01 + ap_02 - media:.2f}/0.5 ->
+{nota_necessaria:.2f}''')
     else:
         print('Então tá, tchau!')
     continuar = input('Quer calcular outra matéria? ')
