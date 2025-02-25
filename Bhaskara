@@ -16,3 +16,5 @@ else:
         print(f'X2 = {x2}')
     else:
         print('Não há raizes reais porque delta é menor que 0.')
+
+#teste git
