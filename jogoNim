@@ -1,0 +1,111 @@
+from random import randint
+
+     
+        
+
+class Jogo:
+    def __init__(self, pedrasTotais, maxPedras):
+        self.pedrasTotais = pedrasTotais
+        self.maxPedras = maxPedras
+
+
+
+jogo = Jogo(0, 0)
+
+
+
+def jogar(jogador):
+    if jogador == "maquina":
+        if jogo.pedrasTotais == jogo.maxPedras:
+            qtd = jogo.maxPedras - 1
+            jogo.pedrasTotais -= qtd
+            return qtd
+        else:
+            qtd = randint(1, jogo.maxPedras)
+            jogo.pedrasTotais -= qtd
+            return qtd
+    else:
+        if jogo.pedrasTotais == 1:
+            print(f"Você já perdeu, resta apenas {jogo.pedrasTotais} pedra!")
+            return "perdeu"
+        while True:
+            numero = int(input("Quantas pedras quer retirar? "))
+            if numero > jogo.maxPedras or numero == 0:
+                print(f"Fora do limite de pedras estabelecido. escolha ente 1 e {jogo.maxPedras}")
+                continue
+            jogo.pedrasTotais -= numero
+            return numero
+
+while True:
+    jogo.pedrasTotais = int(input("Quantas pedras totais: "))
+    jogo.maxPedras = int(input("Defina quantas pedras podem ser retiradas: "))
+
+    contraQuem = int(input("Contra quem vai jogar? [1]Maquina [2]Jogador2 "))
+    if contraQuem == 1:
+        #MAQUINA#
+         while True:
+            print("")
+            print("Vez do jogador 1")
+            vez = jogar("")
+            if vez == "perdeu":
+                print("Jogador 1 perdeu")
+                
+                break
+            
+            print(f"O Jogador 1 tirou {vez} pedras")
+            print(f"Restam {jogo.pedrasTotais}")
+
+            if jogo.pedrasTotais == 1:
+                print("Máquina perdeu")
+                
+                break
+            print("")
+            print("Vez da Máquina")
+            vez = jogar("maquina")
+            
+            print(f"A Maquina tirou {vez} pedras")
+            print(f"Restam {jogo.pedrasTotais}")
+
+
+        
+
+    elif contraQuem == 2:
+        #JOGADOR 2#
+        while True:
+            print("")
+            print("Vez do jogador 1")
+            vez = jogar("")
+            if vez == "perdeu":
+                print("Jogador 1 perdeu")
+                
+                break
+            
+            print(f"O Jogador 1 tirou {vez} pedras")
+            print(f"Restam {jogo.pedrasTotais}")
+
+            print("")
+            print("Vez do jogador 2")
+            vez = jogar("")
+            if vez == "perdeu":
+                print("Jogador 2 perdeu")
+                
+                break
+            
+            print(f"O Jogador 2 tirou {vez} pedras")
+            print(f"Restam {jogo.pedrasTotais}")
+
+                     
+    else:
+        print("Voce escolheu um número inválido")
+        continue
+    print("")
+    continua = input("Deseja continuar? (S/N): ")
+    if continua[0].upper() == "N":
+        print(f"""FINALIZANDO""")
+        break
+    elif continua[0].upper() != "S":
+        print("Entrada inválida")
+    
+
+        
+
